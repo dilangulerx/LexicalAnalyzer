@@ -19,6 +19,7 @@ CHAR        \'[^']\'
 "do"         { printf("DO\n"); }
 "while"      { printf("WHILE\n"); }
 "func"       { printf("FUNC\n"); }
+"return"     { printf("RETURN\n"); }
 "print"      { printf("PRINT\n"); }
 "exit"       { printf("EXIT\n"); }
 "input"      { printf("INPUT\n"); }

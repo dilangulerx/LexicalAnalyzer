@@ -8,9 +8,13 @@
 
 `<program> ::= <statement> | <statement_list>`
 
-// statement can be assignment, if block, loop or print 
+// statement can be assignment, if block, loop, return, or print 
 
-`<statement> ::= <assignment> | <constant> | <if_statement> | <for_statement> | <do_while_statement> | <command> ";"`
+`<statement> ::= <assignment> | <constant> | <return_statement> | <if_statement> | <for_statement> | <do_while_statement> | <command> ";"`
+
+// return statement
+
+`<return_statement> ::= "return" <expression> ";"`
 // statement_list
 
 `<statement_list> ::= <statement> | <statement_list> <statement>`
