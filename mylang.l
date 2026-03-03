@@ -49,17 +49,19 @@ CHAR        \'[^']\'
 ";"          { printf("SEMICOLON\n"); }
 ","          { printf("COMMA\n"); }
 
-{ID}        { printf("IDENTIFIER\n"); }
-{INTEGER}   { printf("INTEGER\n"); }
-{FLOAT}     { printf("FLOAT\n"); }
-{STRING}    { printf("STRING\n"); }
-{CHAR}      { printf("CHARACTER\n"); }
 
-"~"[^~\n]*          { printf("SINGLE_LINE_COMMENT\n"); } // Tek satır yorum desteği eklendi
-"~"([^*]|"~")*"~"   { printf("BLOCK_COMMENT\n"); }      // Mevcut blok yorumun geliştirildi
+"~"[^~\n]*"~"          { /* comment */ }
 
-[ \t\r]+    { /* Boşlukları yoksay */ }
-\n          { line_num++; } // Satır sayısını artır
+[ \t\r\n]+    { /* Boşlukları yoksay; \n ise satır sayısını artır */
+                for(char *p = yytext; *p; ++p) if(*p == '\n') ++line_num;
+            }
+
+{FLOAT}     { printf("FLOAT %s\n", yytext); }
+{INTEGER}   { printf("INTEGER %s\n", yytext); }
+{ID}        { printf("IDENTIFIER %s\n", yytext); }
+{STRING}    { printf("STRING %s\n", yytext); }
+{CHAR}      { printf("CHARACTER %s\n", yytext); }
+
 .           { printf("UNKNOWN: %s at line %d\n", yytext, line_num); } // Hata mesajına satır eklendi
 
 %%

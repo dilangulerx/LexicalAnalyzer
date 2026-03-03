@@ -1,5 +1,9 @@
 # Lexical Analyzer Project - Sun Programming Language
-## 2021088022 Dilan Güler, 20230808623 İbrahim Çakır
+## Group Members
+* 2021088022 Dilan Güler
+* 20230808623 İbrahim Çakır
+
+*(working individually but listed both names as collaborators)*
 ### BNF Grammer
 ---------------------------------------------------------------
 // program includes at least 1 statement
@@ -142,6 +146,18 @@ Sun is a simple programming language that includes fundamental programming const
 
 ***Comments***
 * 	Comments are written between ~ symbols.
+
+***Design Decisions***
+* I chose `~` instead of `//` or `/* */` for simplicity and to avoid conflict
+  with C-style comments in the generated lexer code.
+* The for‑loop uses `:` separators to keep the syntax concise and to make it
+  easier for the parser to split initialization/condition/increment parts.
+* Functions are minimal: no return type declaration, a `return` keyword can be
+  added later in the parser stage – here we just demonstrate calling a
+  function with parameters.
+* String concatenation is handled with `+` like arithmetic for simplicity.
+* The language is intentionally imperative and loosely typed to keep the
+  lexical analysis straightforward.
 
 ***Running a Sun Program***
 *      To compile and run a Sun program, use the following command:
