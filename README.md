@@ -2,8 +2,6 @@
 ## Group Members
 * 2021088022 Dilan Güler
 * 20230808623 İbrahim Çakır
-
-*(working individually but listed both names as collaborators)*
 ### BNF Grammer
 ---------------------------------------------------------------
 // program includes at least 1 statement
